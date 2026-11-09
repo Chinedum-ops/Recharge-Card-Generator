@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recharge Card Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <style>
+        * {
+            background-color: gray;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        #rcgbody {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #rcgbody header {
+            display: grid;
+            align-items: space-around;
+            justify-content: space-around;
+        }
+
+        #line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #line2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #button1 {
+            padding: 7px;
+            margin: 7px;
+            border-radius: 10px;
+            background-color: blue;
+            color: white;
+            border: 1px solid darkblue;
+        }
+
+        #button2 {
+            padding: 9px;
+            margin: 7px;
+            border-radius: 12px;
+            background-color: green;
+            color: white;
+            border: 1px solid darkgreen;
+        }
+
+        #network {
+            background-color: white;
+            color: black;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        #Amount {
+            background-color: white;
+            color: black;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .btn {
+            background-color: aqua;
+            padding: 5px 12px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rcgbody">
+        <header>
+            <div>
+                <h1 style="font-size: 40px; color: black;">Recharge Card Generator</h1>
+            </div>
+            <div>
+                <span>Select Network:</span>
+                <select id="network">
+                    <option value="MTN">MTN</option>
+                    <option value="GLO">GLO</option>
+                    <option value="AIRTEL">AIRTEL</option>
+                    <option value="9MOBILE">9MOBILE</option>
+                </select>
+                <span>Enter Pin:</span>
+                <input type="text" id="input1" style="
+            width: 29%;
+            height: 30px;
+            margin: 10px;
+            padding: 5px;
+            border-radius: 10px;
+            border: thin solid black;
+            background-color: white;
+            color: black;
+            "/>
+                <button id="button1" onclick="recharge()">Recharge</button>
+            </div>
+        </header>
+        <div id="line">
+            <span>Amount:</span>
+            <select name="" id="amount">
+                <option value="#50">#50</option>
+                <option value="#100">#100</option>
+                <option value="#200">#200</option>
+                <option value="#500">#500</option>
+                <option value="#1000">#1000</option>
+            </select>
+        </div>
+        <div id="line2">
+            <span>Code:</span>
+            <input type="text" id="input2" style="
+            width: 13%;
+            height: 30px;
+            margin: 10px;
+            padding: 5px;
+            border-radius: 10px;
+            border: thin solid black;
+            background-color: white;
+            color: black;
+            " readonly>
+            <button id="button2" onclick="generatePin()">Generate</button>
+            <button id="button2" onclick="savePin()">Save Pin</button>
+        </div>
+        <div id="store">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">S/N</th>
+                        <th scope="col">Network Operators</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Pin</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Date Used</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="rcg.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+    crossorigin="anonymous"></script>
+
+</html>
